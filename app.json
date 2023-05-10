@@ -1,10 +1,4 @@
 {
-  "expo": {
-    "scheme": "acme",
-    "web": {
-      "bundler": "metro"
-    },
-    "name": "JobHunter",
-    "slug": "JobHunter"
-  }
+  "name": "AwesomeProject",
+  "displayName": "AwesomeProject"
 }

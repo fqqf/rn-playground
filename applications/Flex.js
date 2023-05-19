@@ -55,25 +55,25 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   view1: {
-    width: 100, 
+    width: 100,
     height: 100,
     backgroundColor: '#00ffff',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   view2: {
-    width: 100, 
+    width: 100,
     height: 100,
     backgroundColor: '#00cccc',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   view3: {
-    width: 100, 
+    width: 100,
     height: 100,
     backgroundColor: '#00aaaa',
     alignItems: 'flex-end',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   text: {
     color: 'black',
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     width: 200,
     height: 100,
     margin: 0,
-  }
+  },
 });
 
 export default App;

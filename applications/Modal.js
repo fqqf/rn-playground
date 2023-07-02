@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { TouchableWithoutFeedback } from 'react-native';
 import {
   Alert,
   Button,
@@ -30,21 +31,34 @@ const App = () => {
         visible={showWarning}
         onRequestClose={() => SetShowWarning(false)}
         transparent
+        animationType='fade'
       >
         <View style={styles.centered_view}>
-          <View style={styles.warning_modal}>
-            <Text>Это самое место для твоего таланта</Text>
+          <View style={styles.warning_modal} >
+            <View style={styles.warning_title}>
+              <Text style={{fontSize:20, color: '#000000',}}>WARNING</Text>
+            </View>
+            <View style={styles.warning_body}>
+            <Text style={{color: 'black', fontSize: 20, margin: 20, alignSelf: 'center'}}>Это самое место для твоего таланта</Text>
+            </View>
+            <Pressable
+            style={styles.warning_button}
+            onPress={()=>SetShowWarning(false)}
+            android_ripple={{color: '#fff'}}
+            >
+              <Text style={styles.text_normal}>OK</Text>
+            </Pressable>
           </View>
         </View>
       </Modal>
-      <Text style={styles.text}>Please write your name:</Text>
+      <Text selectable={true} selectionColor='orange' style={styles.text}>Please write your name:</Text>
       <TextInput
         style={styles.input}
         placeholder='e.g John'
         onChangeText={(value) => SetName(value.toString())}
         multiline
         secureTextEntry
-        maxLength={10}
+        maxLength={20}
         editable={!sumbitted}
       />
 
@@ -84,6 +98,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     //  backgroundColor: 'black',
+    elevation: 10,
   },
   body: {
     flex: 1,
@@ -94,13 +109,18 @@ const styles = StyleSheet.create({
   text: {
     color: '#000000',
     fontSize: 20,
-    margin: 4,
+    margin: 20,
     fontStyle: 'italic',
+  },
+  text_normal: {
+    color: '#000000',
+    fontSize: 20,
+    margin: 10,
+    alignSelf: 'center',
   },
   text_button: {
     color: '#FFFFFF',
     fontSize: 20,
-    fontStyle: 'italic',
   },
   input: {
     borderWidth: 1,
@@ -114,13 +134,35 @@ const styles = StyleSheet.create({
   warning_modal: {
     width: 300,
     height: 300,
-    backgroundColor: '#999',
-    borderRadius: 5,
+    backgroundColor: '#ffffff',
+    borderRadius: 20,
+    borderWidth: 1,
+    elevation: 10,
   },
   centered_view: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#00000099',
+  },
+  warning_title:
+  {
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#ff0',
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
+  },
+  warning_body: {
+    height: 200,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  warning_button: {
+    backgroundColor: '#00ffff',
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
   }
 });
 
